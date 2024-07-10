@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <p>Jennys Task Planner</p>
+        <input type="text" placeholder="Input item" id="addTask"/>
+        <br>
+        <div class="buttons">
+            <input type="button" value="Add Item" onclick="addItem();"/>
+            <input type="button" value="Clear All" onclick="clearAllItems();"/>
+        </div>
+        <div id="list"></div>
+    </div>
+    <script>
+        function addItem() {
+            var taskInput = document.getElementById("addTask");
+            var newItem = document.createElement("div");
+            newItem.className = "taskItem";
+            newItem.innerHTML = `
+                <span>${taskInput.value}</span>
+                <input type="checkbox" class="taskCheckbox"/>
+                <button onclick="deleteItem(this)">Delete</button>
+            `;
+            document.getElementById("list").appendChild(newItem);
+            taskInput.value = ''; 
+            saveList();
+        }
+
+        function deleteItem(button) {
+            var item = button.parentElement;
+            document.getElementById("list").removeChild(item);
+            saveList();
+        }
+
+    
+
+        function clearAllItems() {
+            document.getElementById("list").innerHTML = '';
+            saveList();
+        }
+
+        function saveList() {
+            localStorage.storedList = document.getElementById("list").innerHTML;
+        }
+
+        function loadList() {
+            var list = document.getElementById("list");
+            if (localStorage.storedList) {
+                list.innerHTML = localStorage.storedList;
+                var buttons = document.querySelectorAll(".taskItem button");
+                buttons.forEach(button => {
+                    button.onclick = function() {
+                        deleteItem(button);
+                    };
+                });
+            }
+        }
+
+        window.onload = loadList;
+    </script>
+</body>
+</html>
