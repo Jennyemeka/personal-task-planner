@@ -7,6 +7,100 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <style>
+        body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: url('images\ \(1\).jpeg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 24px;
+    color: #db3fac;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 2px solid #f85482;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.buttons input[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff47c8;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.buttons input[type="button"]:hover {
+    background-color: #f53896;
+}
+
+#list {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.taskItem {
+    background-color: #ffe4b5;
+    border: 2px solid #f53896;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskItem span {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.taskItem input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.taskItem button {
+    background-color: #f53896;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.taskItem button:hover {
+    background-color: #ff4500;
+}
+
+    </style>
     <div class="container">
         <p>Jennys Task Planner</p>
         <input type="text" placeholder="Input item" id="addTask"/>
